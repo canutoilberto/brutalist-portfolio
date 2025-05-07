@@ -38,7 +38,7 @@ export default function About() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Minha Jornada
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
               Sou um desenvolvedor fullstack apaixonado por criar soluções
               digitais inovadoras e funcionais. Com mais de 4 anos de
               experiência, tenho trabalhado com diversas tecnologias e
@@ -87,11 +87,11 @@ export default function About() {
         >
           <Card className="neo-brutalism-pink">
             <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">Educação</h3>
-              <p className="text-white mb-4">
+              <h3 className="text-xl font-bold  mb-2">Educação</h3>
+              <p className=" mb-4">
                 Análise e Desenvolvimento de Sistemas - UNINASSAU, 2022
               </p>
-              <p className="text-white/80">
+              <p className="">
                 Formação complementada por diversos cursos e certificações em
                 desenvolvimento web, arquitetura de software e metodologias
                 ágeis.
@@ -100,13 +100,13 @@ export default function About() {
           </Card>
           <Card className="neo-brutalism-blue">
             <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">Objetivos</h3>
-              <p className="text-white mb-4">
+              <h3 className="text-xl font-bold ">Objetivos</h3>
+              <p className=" mb-4">
                 Busco constantemente aprimorar minhas habilidades e
                 conhecimentos para criar soluções digitais de alta qualidade e
                 impacto.
               </p>
-              <p className="text-white/80">
+              <p className="">
                 Meu objetivo é contribuir para projetos inovadores e
                 desafiadores que transformem a experiência dos usuários.
               </p>
