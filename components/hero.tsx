@@ -25,7 +25,9 @@ export default function Hero() {
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Olá, eu sou
-                <span className="block text-primary">Ilberto Canuto</span>
+                <span className="block text-primary font-pixelify">
+                  Ilberto Canuto
+                </span>
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Transformando ideias em experiências digitais excepcionais.
