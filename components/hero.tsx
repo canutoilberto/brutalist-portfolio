@@ -98,7 +98,7 @@ export default function Hero() {
               ></div>
               <div className="relative h-full w-full neo-brutalism-blue rounded-full overflow-hidden">
                 <img
-                  src="/neno.png"
+                  src="/hero.jpg"
                   alt="Desenvolvedor Fullstack"
                   className="object-cover h-full w-full"
                 />
