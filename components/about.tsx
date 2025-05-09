@@ -14,7 +14,7 @@ export default function About() {
       company: "Rede Paraíba de Comunicação",
       role: "Desenvolvedor Fullstack",
       description:
-        "Desenvolvendo aplicações web e móveis com React, Next.js, Node.js e React Native.",
+        "Desenvolvendo aplicações web e móveis com React, Next.js, Node.js, Docker, Wordpress e muito mais.",
     },
   ];
 
