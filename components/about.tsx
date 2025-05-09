@@ -87,7 +87,7 @@ export default function About() {
         >
           <Card className="neo-brutalism-pink">
             <CardContent className="p-6">
-              <h3 className="text-xl font-bold  mb-2">Educação</h3>
+              <h3 className="text-xl font-bold mb-2">Educação</h3>
               <p className=" mb-4">
                 Análise e Desenvolvimento de Sistemas - UNINASSAU, 2022
               </p>
