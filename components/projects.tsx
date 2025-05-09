@@ -163,7 +163,7 @@ export default function Projects() {
         >
           <Button className="neo-brutalism-blue text-white" asChild>
             <Link
-              href="https://github.com"
+              href="https://github.com/canutoilberto"
               target="_blank"
               rel="noopener noreferrer"
             >
