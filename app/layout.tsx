@@ -14,7 +14,6 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Neno Canuto",
   description: "Portfólio profissional de desenvolvedor fullstack",
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
