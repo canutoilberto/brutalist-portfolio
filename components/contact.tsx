@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+declare global {
+  interface Window {
+    grecaptcha?: any;
+  }
+}
+
+const RECAPTCHA_SITE_KEY = "6LesbTgrAAAAAA2ztJBP7Xn8_MCB-7mpiyKN5oF5";
+
 export default function Contact() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -22,6 +30,16 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!window.grecaptcha) {
+      const script = document.createElement("script");
+      script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,21 +52,45 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulando envio do formulário
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Obter token do reCAPTCHA
+      const grecaptcha = (window as any).grecaptcha;
+      if (!grecaptcha) throw new Error("reCAPTCHA não carregado.");
+      const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+        action: "submit",
+      });
 
-    toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Responderei em breve.",
-    });
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, recaptchaToken: token }),
+      });
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Erro ao enviar mensagem.");
+      }
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Obrigado pelo contato. Responderei em breve.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: error.message || "Tente novamente mais tarde.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
