@@ -78,8 +78,8 @@ export default function Projects() {
               Meus Trabalhos Recentes
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Confira alguns dos projetos que desenvolvi, demonstrando minhas
-              habilidades e experiência.
+              Confira alguns dos projetos mockups que desenvolvi, demonstrando
+              minhas habilidades e experiência.
             </p>
           </div>
         </motion.div>
