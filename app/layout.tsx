@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Neno Canuto",
+  title: "Neno Canuto | Página Principal",
   description: "Portfólio profissional de desenvolvedor fullstack",
 };
 
