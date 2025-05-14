@@ -6,13 +6,42 @@ export const metadata: Metadata = {
 };
 
 export default function TermosDeUso() {
+  const sections = [
+    { id: "aceitacao", title: "1. Aceitação dos Termos" },
+    { id: "uso", title: "2. Uso do Site" },
+    { id: "propriedade", title: "3. Propriedade Intelectual" },
+    { id: "responsabilidade", title: "4. Limitação de Responsabilidade" },
+    { id: "modificacoes", title: "5. Modificações" },
+    { id: "lei", title: "6. Lei Aplicável" },
+    { id: "contato", title: "7. Contato" },
+  ];
+
   return (
-    <main className="container mx-auto px-4 py-12 max-w-4xl">
+    <main className="container mx-auto px-4 py-12 max-w-4xl" role="main">
       <h1 className="text-4xl font-bold mb-8">Termos de Uso</h1>
 
+      <nav aria-label="Índice dos Termos de Uso" className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Índice</h2>
+        <ul className="space-y-2">
+          {sections.map((section) => (
+            <li key={section.id}>
+              <a
+                href={`#${section.id}`}
+                className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
+              >
+                {section.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <div className="space-y-6 text-muted-foreground">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="aceitacao" aria-labelledby="aceitacao-title">
+          <h2
+            id="aceitacao-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             1. Aceitação dos Termos
           </h2>
           <p>
@@ -23,8 +52,11 @@ export default function TermosDeUso() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="uso" aria-labelledby="uso-title">
+          <h2
+            id="uso-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             2. Uso do Site
           </h2>
           <p>
@@ -34,8 +66,11 @@ export default function TermosDeUso() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="propriedade" aria-labelledby="propriedade-title">
+          <h2
+            id="propriedade-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             3. Propriedade Intelectual
           </h2>
           <p>
@@ -46,8 +81,11 @@ export default function TermosDeUso() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="responsabilidade" aria-labelledby="responsabilidade-title">
+          <h2
+            id="responsabilidade-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             4. Limitação de Responsabilidade
           </h2>
           <p>
@@ -58,8 +96,11 @@ export default function TermosDeUso() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="modificacoes" aria-labelledby="modificacoes-title">
+          <h2
+            id="modificacoes-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             5. Modificações
           </h2>
           <p>
@@ -70,8 +111,11 @@ export default function TermosDeUso() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="lei" aria-labelledby="lei-title">
+          <h2
+            id="lei-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             6. Lei Aplicável
           </h2>
           <p>
@@ -81,8 +125,11 @@ export default function TermosDeUso() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-foreground">
+        <section id="contato" aria-labelledby="contato-title">
+          <h2
+            id="contato-title"
+            className="text-2xl font-semibold mb-4 text-foreground"
+          >
             7. Contato
           </h2>
           <p>
@@ -90,12 +137,26 @@ export default function TermosDeUso() {
             do email:
             <a
               href="mailto:canutoilberto@gmail.com"
-              className="text-primary hover:underline ml-1"
+              className="text-primary hover:underline ml-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1"
+              aria-label="Enviar email para canutoilberto@gmail.com"
             >
               canutoilberto@gmail.com
             </a>
           </p>
         </section>
+      </div>
+
+      <div className="mt-8 text-center">
+        <a
+          href="#"
+          className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded px-4 py-2"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          Voltar ao topo
+        </a>
       </div>
     </main>
   );
