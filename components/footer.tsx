@@ -147,13 +147,13 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <Link
-              href="#"
+              href="/termos-de-uso"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               Termos de Uso
             </Link>
             <Link
-              href="#"
+              href="/politica-de-privacidade"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               Política de Privacidade
